@@ -30,4 +30,32 @@ public interface UserMapper {
      * @return
      */
     User selectLogin(@Param("username") String username, @Param("password") String passowrd);
+
+    /**
+     * 检验邮箱是否已经存在
+     * @param email
+     * @return
+     */
+    int checkEmail(String email);
+
+    /**
+     * 查询用户的忘记密码提示问题
+     * @param username
+     * @return
+     */
+    String selectQuestionByUsername(String username);
+
+    int checkAnswer(@Param("username")String username,@Param("question")String question,@Param("answer")String answer);
+
+    int updatePasswordByUsername(@Param("username") String username,@Param("passwordNew") String passwordNew);
+
+    int checkPassword(@Param("password")String password,@Param("userId")Integer userId);
+
+    /**
+     * 对邮箱进行查重
+     * @param email
+     * @param userId
+     * @return
+     */
+    int checkEmailByUserId(@Param("email")String email,@Param("userId")Integer userId);
 }
