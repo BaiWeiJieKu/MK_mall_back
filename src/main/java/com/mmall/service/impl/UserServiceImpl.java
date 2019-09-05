@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
+/**
+ * 用户service实现
+ * @author QinFen
+ */
 @Service("iUserService")
 public class UserServiceImpl implements IUserService {
 
@@ -201,5 +205,20 @@ public class UserServiceImpl implements IUserService {
         //把密码置为空，返回用户的信息
         user.setPassword(StringUtils.EMPTY);
         return ServerResponse.createBySuccess(user);
+    }
+
+    //backend
+
+    /**
+     * 判断用户是否为管理员
+     * @param user
+     * @return
+     */
+    @Override
+    public ServerResponse checkAdminRole(User user) {
+        if (user != null && user.getRole().intValue() == Const.Role.ROLE_ADMIN) {
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
     }
 }

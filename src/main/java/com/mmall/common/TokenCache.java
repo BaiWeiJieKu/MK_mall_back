@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 本地Token缓存
- * @auther QinFen
+ * @author QinFen
  * @date 2019/9/4 0004 14:15
  */
 public class TokenCache {
