@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 /**
- *
+ *读取配置文件
  */
 public class PropertiesUtil {
 
