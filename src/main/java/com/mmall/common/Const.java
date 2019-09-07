@@ -1,5 +1,9 @@
 package com.mmall.common;
 
+import com.google.common.collect.Sets;
+
+import java.util.Set;
+
 /**
  * 常量类
  * @auther QinFen
@@ -20,6 +24,13 @@ public class Const {
     public static final String USERNAME = "username";
 
     /**
+     * 商品列表排序
+     */
+    public interface ProductListOrderBy{
+        Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
+    }
+
+    /**
      * 角色
      */
     public interface Role {
@@ -31,5 +42,27 @@ public class Const {
          * 管理员
          */
         int ROLE_ADMIN = 1;
+    }
+
+    /**
+     * 产品状态枚举
+     */
+    public enum ProductStatusEnum{
+        ON_SALE(1,"在线");
+
+        private String value;
+        private int code;
+        ProductStatusEnum(int code,String value){
+            this.code = code;
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public int getCode() {
+            return code;
+        }
     }
 }
