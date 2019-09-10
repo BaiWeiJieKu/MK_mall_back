@@ -161,5 +161,13 @@
   <select id="selectCartProductCount" resultType="java.lang.Integer" parameterType="int">
     select IFNULL(sum(quantity),0) as count from mmall_cart where user_id = #{userId}
   </select>
+  
+  <select id="selectCheckedCartByUserId" resultMap="BaseResultMap" parameterType="int">
+    select
+    <include refid="Base_Column_List"/>
+    from mmall_cart
+    where user_id = #{userId}
+    and checked = 1
+  </select>
 
 </mapper>

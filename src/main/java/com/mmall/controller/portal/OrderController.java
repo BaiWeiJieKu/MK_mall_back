@@ -32,6 +32,33 @@ public class OrderController {
     @Autowired
     private IOrderService iOrderService;
 
+
+    /**创建订单
+     * @param session
+     * @param shippingId
+     * @return
+     */
+    @RequestMapping("create.do")
+    @ResponseBody
+    public ServerResponse create(HttpSession session, Integer shippingId){
+        User user = (User)session.getAttribute(Const.CURRENT_USER);
+        if(user ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iOrderService.createOrder(user.getId(),shippingId);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     /**支付订单，对接支付宝,使用支付宝沙箱
      * @param session
      * @param orderNo
@@ -53,6 +80,8 @@ public class OrderController {
      * @param request
      * @return
      */
+    @RequestMapping("alipay_callback.do")
+    @ResponseBody
     public Object alipayCallback(HttpServletRequest request){
         Map<String,String> params = Maps.newHashMap();
 
