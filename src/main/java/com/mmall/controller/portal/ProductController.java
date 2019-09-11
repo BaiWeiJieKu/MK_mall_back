@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**前台商品
+/**前台商品管理
  * @author QinFen
  * @date 2019/9/7 0007 11:22
  */

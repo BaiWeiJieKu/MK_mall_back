@@ -24,6 +24,11 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
 
+    /**用户登录
+     * @param username
+     * @param password
+     * @return
+     */
     @Override
     public ServerResponse<User> login(String username, String password) {
         //检查用户名是否已经存在
@@ -45,6 +50,10 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccess("登录成功",user);
     }
 
+    /**用户注册
+     * @param user
+     * @return
+     */
     @Override
     public ServerResponse<String> register(User user) {
         //校验用户名
@@ -69,6 +78,11 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccessMessage("注册成功");
     }
 
+    /**验证用户名或邮箱
+     * @param str
+     * @param type
+     * @return
+     */
     @Override
     public ServerResponse<String> checkValid(String str, String type) {
         //type为username或者email
@@ -97,6 +111,10 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccessMessage("校验成功");
     }
 
+    /**获取密保问题
+     * @param username
+     * @return
+     */
     @Override
     public ServerResponse<String> forgetGetQuestion(String username) {
         //查询用户是否存在
@@ -112,6 +130,12 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("找回密码的问题是空的");
     }
 
+    /**验证密保问题
+     * @param username
+     * @param question
+     * @param answer
+     * @return
+     */
     @Override
     public ServerResponse<String> forgetCheckAnswer(String username, String question, String answer) {
         //通过username,问题，答案验证
@@ -126,6 +150,12 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("问题的答案错误");
     }
 
+    /**忘记密码时重置密码
+     * @param username
+     * @param passwordNew
+     * @param forgetToken
+     * @return
+     */
     @Override
     public ServerResponse<String> forgetRestPassword(String username, String passwordNew, String forgetToken) {
         //判断参数中是否有token
@@ -156,6 +186,12 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("修改密码失败");
     }
 
+    /**登录状态重置密码
+     * @param passwordOld
+     * @param passwordNew
+     * @param user
+     * @return
+     */
     @Override
     public ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user) {
         //防止横向越权，要校验一下这个用户的旧密码，一定要指定是这个用户，因为我们会查询一个count(1),如果不指定id，那么结果就是true了，count>0
@@ -173,6 +209,10 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("密码更新失败");
     }
 
+    /**修改个人信息
+     * @param user
+     * @return
+     */
     @Override
     public ServerResponse<User> updateInformation(User user) {
         //username是不能被更新的
@@ -195,6 +235,10 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("更新个人信息失败");
     }
 
+    /**获取个人信息
+     * @param userId
+     * @return
+     */
     @Override
     public ServerResponse<User> getInformation(Integer userId) {
         //通过id查询用户信息

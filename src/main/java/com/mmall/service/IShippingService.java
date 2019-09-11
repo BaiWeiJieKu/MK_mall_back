@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.Shipping;
 
-/**收货地址
+/**收货地址service
  * @author QinFen
  * @date 2019/9/8 0008 15:41
  */

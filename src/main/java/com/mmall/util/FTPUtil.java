@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
-/**
+/**FTP服务器工具
  * @author QinFen
  * @date 2019/9/6 0006 19:39
  */

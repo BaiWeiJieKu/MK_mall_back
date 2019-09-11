@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 
 /**
  * MD5密码加密工具类
+ * @author Administrator
  */
 public class MD5Util {
 

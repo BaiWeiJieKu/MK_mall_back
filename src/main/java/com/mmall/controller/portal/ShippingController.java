@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
-/**收货地址
+/**前台收货地址管理
  * @author QinFen
  * @date 2019/9/8 0008 15:40
  */

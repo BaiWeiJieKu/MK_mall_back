@@ -3,7 +3,7 @@ package com.mmall.service;
 import com.mmall.common.ServerResponse;
 import com.mmall.pojo.User;
 
-/**
+/**用户service
  * @author qinfen
  */
 public interface IUserService {

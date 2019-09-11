@@ -2,7 +2,7 @@ package com.mmall.util;
 
 import java.math.BigDecimal;
 
-/**价格运算工具（防止丢失精度）
+/**价格运算工具(务必使用字符串构造器，否则会丢失精度)
  * @author QinFen
  * @date 2019/9/7 0007 17:08
  */

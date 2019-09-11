@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
-/**产品管理
+/**管理员产品管理
  * @author QinFen
  * @date 2019/9/6 0006 14:55
  */
@@ -153,8 +153,11 @@ public class ProductManageController {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
         if (iUserService.checkAdminRole(user).isSuccess()){
+            //保存路径
             String path = request.getSession().getServletContext().getRealPath("upload");
+            //目标文件名
             String targetFileName = iFileService.upload(file,path);
+            //保存成功后文件的地址
             String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
 
             Map fileMap = Maps.newHashMap();

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
-/**前端接口
+/**前端用户管理
  * @author qinfen
  */
 @Controller

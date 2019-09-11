@@ -5,7 +5,7 @@ import com.mmall.pojo.Category;
 
 import java.util.List;
 
-/**
+/**分类service
  * @author QinFen
  * @date 2019/9/5 0005 16:25
  */

@@ -27,13 +27,31 @@ public class Const {
      * 商品列表排序
      */
     public interface ProductListOrderBy{
+        /**
+         * 价格排序
+         */
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
 
+    /**
+     * 购物车
+     */
     public interface Cart{
-        int CHECKED = 1;//购物车选中状态
-        int UN_CHECKED = 0;//购物车未选中状态
+        /**
+         * 购物车已勾选
+         */
+        int CHECKED = 1;
+        /**
+         * 购物车未勾选
+         */
+        int UN_CHECKED = 0;
+        /**
+         * 限制数量失败
+         */
         String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
+        /**
+         * 限制数量成功
+         */
         String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
     }
 
@@ -55,6 +73,9 @@ public class Const {
      * 产品状态枚举
      */
     public enum ProductStatusEnum{
+        /**
+         * 正在出售状态
+         */
         ON_SALE(1,"在线");
 
         private String value;
@@ -77,11 +98,29 @@ public class Const {
      * 订单状态枚举
      */
     public enum OrderStatusEnum{
+        /**
+         * 订单已取消
+         */
         CANCELED(0,"已取消"),
+        /**
+         * 订单未支付
+         */
         NO_PAY(10,"未支付"),
+        /**
+         * 订单已支付
+         */
         PAID(20,"已付款"),
+        /**
+         * 商品已发货
+         */
         SHIPPED(40,"已发货"),
+        /**
+         * 订单完成
+         */
         ORDER_SUCCESS(50,"订单完成"),
+        /**
+         * 订单关闭
+         */
         ORDER_CLOSE(60,"订单关闭");
 
         OrderStatusEnum(int code,String value){
@@ -110,9 +149,12 @@ public class Const {
     }
 
     /**
-     * 支付类型
+     * 支付选项
      */
     public enum PayPlatformEnum{
+        /**
+         * 支付宝支付
+         */
         ALIPAY(1,"支付宝");
 
         PayPlatformEnum(int code,String value){
@@ -135,6 +177,9 @@ public class Const {
      * 支付类型
      */
     public enum PaymentTypeEnum{
+        /**
+         * 在线支付
+         */
         ONLINE_PAY(1,"在线支付");
 
         PaymentTypeEnum(int code,String value){
